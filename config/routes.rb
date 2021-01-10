@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     get 'followed' => 'relationships#followed', as: 'followed'
   end
 
-  resources :books
-  resources :books, only: [:new, :create, :index, :show, :destroy] do
+  resources :books do
+  #resources :books, only: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
